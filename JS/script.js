@@ -32,11 +32,11 @@ function activateNavBar() {
     var height = document.body.scrollTop || document.documentElement.scrollTop;
 
     //heigt of anchor elements
-    var serviceHeight = document.getElementById("service").offsetTop - 1;
-    var calendarHeight = document.getElementById("calendar").offsetTop - 1;
-    var paymentHeight = document.getElementById("payment").offsetTop - 1;
-    var locationHeight = document.getElementById("location").offsetTop - 1;
-    var bookHeight = document.getElementById("book").offsetTop - 1;
+    var serviceHeight = document.getElementById("service").offsetTop - 2;
+    var calendarHeight = document.getElementById("calendar").offsetTop - 2;
+    var paymentHeight = document.getElementById("payment").offsetTop - 2;
+    var locationHeight = document.getElementById("location").offsetTop - 2;
+    var bookHeight = document.getElementById("book").offsetTop - 2;
 
     //navbar elements
     var service = document.getElementById("navService");
