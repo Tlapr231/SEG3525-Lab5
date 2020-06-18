@@ -26,15 +26,18 @@ img.payment {
    max-width: 100px;
 }
 
+img.map {
+   object-fit: cover;
+}
+
+img.navicon {
+   max-width: 32px;
+}
 /* https://stackoverflow.com/questions/5703552/css-center-text-horizontally-and-vertically-inside-a-div-block */
 div.vcenter {
    display: flex;
    justify-content: center;
    align-items: center;
-}
-
-img.map {
-   object-fit: cover;
 }
 
 .sticky-top {

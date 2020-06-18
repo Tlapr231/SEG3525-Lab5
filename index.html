@@ -39,33 +39,36 @@
     <!-- NAVBAR -->
     <!-- code for nav bar : https://getbootstrap.com/docs/4.5/components/navbar/ -->
     <!-- Anchor condept from : https://stackoverflow.com/questions/5172717/how-to-navigate-to-a-section-of-a-page -->
-    <nav class="container navbar navbar-expand-lg navbar-light bg-white sticky-top">
-        <a class="navbar-brand" href="index.html#top">Burning Bike</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active" id="navService" onclick="activateNavBar()">
-                    <a class="nav-link" href="#service">Services <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item" id="navCalendar" onclick="activateNavBar()">
-                    <a class="nav-link" href="#calendar">Calendar</a>
-                </li>
-                <li class="nav-item" id="navPayment" onclick="activateNavBar()">
-                    <a class="nav-link" href="#payment">Payment</a>
-                </li>
-                <li class="nav-item" id="navLocation" onclick="activateNavBar()">
-                    <a class="nav-link" href="#location">Where to find us</a>
-                </li>
-                <li class="nav-item" id="navBook" onclick="activateNavBar()">
-                    <a class="nav-link" href="#book">Book an appointment</a>
-                </li>
-            </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border border-left-0 sticky-top">
+        <div class="container">
+
+            <a class="navbar-brand" href="index.html#top">Burning Bike</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active" id="navService" onclick="activateNavBar()">
+                        <a class="nav-link" href="#service"><img class="navicon" src="images/serviceIcon.png" alt="Icon"> Services<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item" id="navCalendar" onclick="activateNavBar()">
+                        <a class="nav-link" href="#calendar">Calendar</a>
+                    </li>
+                    <li class="nav-item" id="navPayment" onclick="activateNavBar()">
+                        <a class="nav-link" href="#payment">Payment</a>
+                    </li>
+                    <li class="nav-item" id="navLocation" onclick="activateNavBar()">
+                        <a class="nav-link" href="#location">Where to find us</a>
+                    </li>
+                    <li class="nav-item" id="navBook" onclick="activateNavBar()">
+                        <a class="nav-link" href="#book">Book an appointment</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
-
-     <div class=container>
+        
+        <div class=container>
 
         <!-- LOGO HEADER -->
         <div class="p-3 my-3 row border bg-dark text-white rounded-pill" id="top">
@@ -478,6 +481,64 @@
             <p class="sign">Student in Software Engineering</p>
         </div>
         <br>
+
+        <!-- Using the collapsible Navbar, so we see the hamburger menu icon -->
+<!-- It really has become a standard. -->
+<!-- As your page is a vertical page (Module 4 requirement), you mus use the navbar -->
+<!-- to just jump to parts of the page. What I put as First/Second/Third here would -->
+<!-- be sections in your page. -->
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#first"><img src="images/peigne.png" alt="logo" style="width:30px;">First</a>
+        </li> 
+        <li class="nav-item">
+          <a class="nav-link" href="#second"><img src="images/tiger.png" alt="logo" style="width:30px;">Second</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#third">Third</a>
+        </li>   
+     </ul>
+    </div>  
+  </nav>
+  <br>
+  
+  <!-- Just arbitrary divisions to see the link from the NavBar -->
+  <!-- Also, notice the use of the icon repeated from the menu to add grouping -->
+  <div class="container" id="first">
+    <h3><img src="images/peigne.png" alt="logo" style="width:40px;">First Item</h3>
+    <p>Display text 1 </p>
+    <p>Display text 2 </p>
+    <p>Display text 3 </p>
+    <p>Display text 4 </p>
+    <p>Display text 5 </p>
+    <p>Display text 6 </p>
+  </div>
+  
+  <div class="container" id="second">
+    <h3><img src="images/tiger.png" alt="logo" style="width:40px;">Second Item</h3>
+    <p>Display text 1 </p>
+    <p>Display text 2 </p>
+    <p>Display text 3 </p>
+    <p>Display text 4 </p>
+    <p>Display text 5 </p>
+    <p>Display text 6 </p>
+  </div>
+  
+  <!-- This section contains elements to be validated -->
+  <!-- Refer to the JavaScript file, where JQuery is used to listen to those inputs using the ids -->
+  <div class="container" id="third">
+    <h3>Third Item</h3>
+    <p>Date: <input type="text" id="dateInput"></p>
+    <p>Phone Number Example <input value="(1234)" type="text" id="phone"></p>
+    <p>Credit Card: <input type="text" id="debit" title="We ask for your credit card number in case of no-show, 20$ will be charged."></p>
+  </div>
+  
     
     </div>
 </body>
