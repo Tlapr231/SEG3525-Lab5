@@ -1,0 +1,75 @@
+/* Une portion de ce code a ete pris de l<espace github de carolinebarriere : https://github.com/carolinebarriere/carolinebarriere.github.io/tree/master/SEG3125-Module4-Service */
+
+/* Style sheet
+   color picker www.w3schools.com/colors/colors_picker.asp
+*/
+
+/* Bootstrap default font-family is Helvetica Neue */
+h1 {
+   font-family: 'Plaster';   
+   text-shadow: 3px 3px 1px black;
+   font-size: 4em; 
+}
+
+h2 {
+   font-family: 'Syncopate';   
+   font-size: 2em;
+   font-weight: bold;
+   margin-top: 8px;
+}
+
+img.logo {
+   max-width: 200px;
+}
+
+img.payment {
+   max-width: 100px;
+}
+
+/* https://stackoverflow.com/questions/5703552/css-center-text-horizontally-and-vertically-inside-a-div-block */
+div.vcenter {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+img.map {
+   object-fit: cover;
+}
+
+.sticky-top {
+   top:-1px;
+}
+
+a.card-link:hover {
+   color: lightgray!important;
+}
+
+.bg-light {
+   background-color: #4f5963!important;
+}
+
+/*Anchor offset idea : https://stackoverflow.com/questions/10732690/offsetting-an-html-anchor-to-adjust-for-fixed-header */
+.anchor {
+   display: block;
+   position: relative;
+   top: -50px;
+   visibility: hidden;
+}
+
+.alert {
+   border-radius: 0;
+}
+
+/* Code from : https://stackoverflow.com/questions/14820952/change-bootstrap-input-focus-blue-glow */
+.uneditable-input:focus {   
+   border-color: rgba(220, 53, 69, 0.8);
+   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(220, 53, 69, 0.6);
+   outline: 0 none;
+ }
+
+ /* https://www.w3schools.com/howto/howto_css_placeholder.asp */
+.uneditable-input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+   color: lightgrey;
+   opacity: 1; /* Firefox */
+ }
