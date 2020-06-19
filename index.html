@@ -30,7 +30,8 @@
     <!-- Style sheet (CSS) and JavaScript scripts necessary to use JQuery as well as JQueryUI library -->
     <!-- which is built on top of JQuery and offers additional possibilities -->
     <!-- For example, JQuery UI has a datepicker which is popular and that we can use -->
-    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/vader/jquery-ui.css" rel="stylesheet" type="text/css">
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/vader/jquery-ui.css" rel="stylesheet"
+        type="text/css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
@@ -333,6 +334,8 @@
 
 
         <div id="accordion">
+
+            <!-- SERVICE SELECTION -->
             <div class="card border-dark">
                 <div class="card-header bg-dark">
                     <a class="card-link text-white" data-toggle="collapse" href="#collapseService">Choose a service</a>
@@ -349,42 +352,43 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><input class="ui-checkboxradio" name="service" type="radio" id="truing"></td>
-                                    <td>Wheel Truing</td>
-                                    <td>$19.95</td>
+                                    <td class="text-center"><input class="ui-checkboxradio" name="service" type="radio"
+                                            id="truing"></td>
+                                    <td><label for="truing">Wheel Truing</label></td>
+                                    <td><label for="truing">$19.95</label></td>
                                 </tr>
                                 <tr>
-                                    <td><input name="service" type="radio" id="relpacement"></td>
-                                    <td>Wheel Replacement</td>
-                                    <td>$99.95 - $224.95</td>
+                                    <td class="text-center"><input name="service" type="radio" id="relpacement"></td>
+                                    <td><label for="relpacement">Wheel Replacement</label></td>
+                                    <td><label for="relpacement">$99.95 - $224.95</label></td>
                                 </tr>
                                 <tr>
-                                    <td><input name="service" type="radio" id="brake"></td>
-                                    <td>Brake Repair</td>
-                                    <td>$29.95</td>
+                                    <td class="text-center"><input name="service" type="radio" id="brake"></td>
+                                    <td><label for="brake">Brake Repair</label></td>
+                                    <td><label for="brake">$29.95</label></td>
                                 </tr>
                                 <tr>
-                                    <td><input name="service" type="radio" id="regular"></td>
-                                    <td>Regular Tune-Up</td>
-                                    <td>$45.95</td>
+                                    <td class="text-center"><input name="service" type="radio" id="regular"></td>
+                                    <td><label for="regular">Regular Tune-Up</label></td>
+                                    <td><label for="regular">$45.95</label></td>
                                 </tr>
                                 <tr>
-                                    <label for="major">
-                                        <td><input name="service" type="radio" id="major"></td>
-                                        <td>Major overhaul</td>
-                                        <td>$145.95</td>
-                                    </label>
+                                    <td class="text-center"><input name="service" type="radio" id="major"></td>
+                                    <td><label for="major">Major overhaul</label></td>
+                                    <td><label for="major">$145.95</label></td>
                                 </tr>
                                 <tr>
-                                    <td><input name="service" type="radio" id="clean"></td>
-                                    <td>Drivetrain Clean</td>
-                                    <td>$44.95</td>
+                                    <td class="text-center"><input name="service" type="radio" id="clean"></td>
+                                    <td><label for="clean">Drivetrain Clean</label></td>
+                                    <td><label for="clean">$44.95</label></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
+
+            <!-- SPECIALIST SELECTION -->
             <div class="card border-dark">
                 <div class="card-header bg-dark">
                     <a class="collapsed card-link text-white" data-toggle="collapse" href="#collapseSpecialist">Choose a
@@ -395,37 +399,39 @@
                         <table class="table table-borderless table-dark table-hover">
                             <thead>
                                 <tr class="bg-danger">
-                                    <th></th>
-                                    <th>Service</th>
-                                    <th></th>
+                                    <th style="width:95px"></th>
+                                    <th>Specialist</th>
+                                    <th>Work Days</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><input name="service" type="radio" id="Erwind"></td>
-                                    <td>Erwind</td>
-                                    <th></th>
+                                    <td class="text-center"><input name="service" type="radio" id="Erwind"></td>
+                                    <td><label for="Erwind">Erwind</label></td>
+                                    <th><label for="Erwind">Monday, Wednesday, Friday</label></th>
                                 </tr>
                                 <tr>
-                                    <td><input name="service" type="radio" id="Conor"></td>
-                                    <td>Conor</td>
-                                    <th></th>
+                                    <td class="text-center"><input name="service" type="radio" id="Conor"></td>
+                                    <td><label for="Conor">Conor</label></td>
+                                    <th><label for="Conor">Monday, Tuesday, Thursday</label></th>
                                 </tr>
                                 <tr>
-                                    <td><input name="service" type="radio" id="Elie"></td>
-                                    <td>Elie</td>
-                                    <th></th>
+                                    <td class="text-center"><input name="service" type="radio" id="Elie"></td>
+                                    <td><label for="Elie">Elie</label></td>
+                                    <th><label for="Elie">Monday, Tuesday, Wednesday, Thursday, Friday</label></th>
                                 </tr>
                                 <tr>
-                                    <td><input name="service" type="radio" id="Kody"></td>
-                                    <td>Kody</td>
-                                    <th></th>
+                                    <td class="text-center"><input name="service" type="radio" id="Kody"></td>
+                                    <td><label for="Kody">Kody</label></td>
+                                    <th><label for="Kody">Tuesday, Wednesday, Thursday, Friday</label></th>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
+
+            <!-- DATE CHOSING -->
             <div class="card border-dark">
                 <div class="card-header bg-dark">
                     <a class="collapsed card-link text-white" data-toggle="collapse" href="#collapseDate">Choose a
@@ -440,8 +446,8 @@
                                 <span class="input-group-text bg-dark text-white" id="basic-addon3">Date and Time
                                     :</span>
                             </div>
-                            <input type="datetime-local" class="form-control uneditable-input bg-light text-white"
-                                id="dateTimeInput" value="2020-06-14T13:45:00">
+                            <input type="text" class="form-control uneditable-input bg-light text-white"
+                                id="dateTimeInput" value="06/18/2020">
                         </div>
 
 
@@ -454,6 +460,8 @@
                     </div>
                 </div>
             </div>
+
+            <!-- PERSONAL INFO -->
             <div class="card border-dark">
                 <div class="card-header bg-dark">
                     <a class="collapsed card-link text-white" data-toggle="collapse" href="#collapseClientInfo">Your
@@ -505,21 +513,23 @@
                                             <span class="input-group-text bg-dark text-white"
                                                 id="basic-addon3">Telephone :</span>
                                         </div>
-                                        <input type="text" class="form-control uneditable-input bg-light text-white" id="inputTelephone4" placeholder="(###) ###-####" >
+                                        <input type="text" class="form-control uneditable-input bg-light text-white"
+                                            id="inputTelephone4" placeholder="(###) ###-####">
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text bg-dark text-white" id="basic-addon3">Address
-                                            :</span>
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text bg-dark text-white" id="basic-addon3">Address
+                                                :</span>
+                                        </div>
+                                        <input type="text" class="form-control uneditable-input bg-light text-white"
+                                            id="inputAddress" placeholder="1234 Main St">
                                     </div>
-                                    <input type="text" class="form-control uneditable-input bg-light text-white"
-                                        id="inputAddress" placeholder="1234 Main St">
                                 </div>
-
                             </div>
 
                             <div class="form-row">
@@ -585,7 +595,8 @@
                             <div class="form-group col-md-8">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text bg-dark text-white" id="basic-addon3">Card Number
+                                        <span class="input-group-text bg-dark text-white" id="basic-addon3">Card
+                                            Number
                                             :</span>
                                     </div>
                                     <input type="text" class="form-control uneditable-input bg-light text-white"
@@ -595,7 +606,8 @@
                             <div class="form-group col-md-4">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text bg-dark text-white" id="basic-addon3">Expiry Date
+                                        <span class="input-group-text bg-dark text-white" id="basic-addon3">Expiry
+                                            Date
                                             :</span>
                                     </div>
                                     <input type="text" class="form-control uneditable-input bg-light text-white"
@@ -608,7 +620,9 @@
                             <div class="form-group col-md-8">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text bg-dark text-white" id="basic-addon3" title="We ask for your credit card number in case of no-show, 20$ will be charged.">Card Holder Name
+                                        <span class="input-group-text bg-dark text-white" id="basic-addon3"
+                                            title="We ask for your credit card number in case of no-show, 20$ will be charged.">Card
+                                            Holder Name
                                             :</span>
                                     </div>
                                     <input type="text" class="form-control uneditable-input bg-light text-white"
@@ -618,7 +632,8 @@
                             <div class="form-group col-md-4">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text bg-dark text-white" id="basic-addon3">CCV Number
+                                        <span class="input-group-text bg-dark text-white" id="basic-addon3">CCV
+                                            Number
                                             :</span>
                                     </div>
                                     <input type="text" class="form-control uneditable-input bg-light text-white"

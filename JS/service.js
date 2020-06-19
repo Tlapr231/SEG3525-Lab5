@@ -72,13 +72,42 @@ function validateCardCCV(ccv) {
 // Document of datepicker is here: https://api.jqueryui.com/datepicker/ 
 // The following code shows how to set specific dates to exclude, as well as Sundays (Day 0)
 // Make sure in your version that you associate Days to remove with Experts (e.g. John doesn't work Mondays)
-var unavailableDates = ["06/29/2020","07/07/2020","07/10/2020"]
+var unavailableDates = []
 const setDateFormat = "mm/dd/yy";
 
 function disableDates(date) {
     // Sunday is Day 0, disable all Sundays
     if (date.getDay() == 0)
         return [false];
+    if (date.getDay() == 6)
+        return [false];
+    var string = jQuery.datepicker.formatDate(setDateFormat, date);
+    return [ unavailableDates.indexOf(string) == -1 ]
+}
+
+function disableDatesBySpecialist(date) {
+    erwind = document.getElementById("Erwind").checked;
+    conor = document.getElementById("Conor").checked;
+    //Ellie works all days so she isnt needed here
+    kody = document.getElementById("Kody").checked;
+
+    // Sunday is Day 0, disable all Sundays
+    if (date.getDay() == 0 || date.getDay() == 6)
+        return [false];
+    
+    if (erwind) {
+        if (date.getDay() == 2 || date.getDay() == 4)
+            return [false];
+    }
+    if (conor) {
+        if(date.getDay() == 3 || date.getDay() == 5)
+            return [false];
+    }
+    if (kody) {
+        if(date.getDay() == 1)
+            return [false];
+    }
+
     var string = jQuery.datepicker.formatDate(setDateFormat, date);
     return [ unavailableDates.indexOf(string) == -1 ]
 }
@@ -163,6 +192,18 @@ $(document).ready(function(){
             // used to disable some dates
             beforeShowDay: $.datepicker.noWeekends,
             beforeShowDay: disableDates
+        }   
+    );
+
+    $( "#dateTimeInput" ).datepicker(
+        {
+            dateFormat: setDateFormat,
+            // no calendar before June 1rst 2020
+            minDate: new Date('06/01/2020'),  
+            maxDate: '+4M',
+            // used to disable some dates
+            beforeShowDay: $.datepicker.noWeekends,
+            beforeShowDay: disableDatesBySpecialist
         }   
     );
 

@@ -7,9 +7,9 @@ function getDayOfWeek() {
         dayOfWeek = new Date(date);
         
         // I refred to the following web site for documentation on getDay() :: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getDay 
-        if (dayOfWeek.getDay() < 5) {
+        if (dayOfWeek.getDay() > 0 && dayOfWeek.getDay() < 6) {
             badge.classList = "badge badge-pill p-2 m-1 badge-success";
-            badge.innerText = "Available 7:00am - 4:00pm";
+            badge.innerText = "Available 8:00am - 4:00pm";
         } else {
             badge.classList = "badge badge-pill p-2 m-1 badge-warning";
             badge.innerText = "Closed";
