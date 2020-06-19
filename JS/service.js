@@ -9,9 +9,56 @@
 // or numbers 
 function validatePhone(txtPhone) {
     var a = document.getElementById(txtPhone).value;
-    // This filter asks for something like (12345), so parentheses with any number (at least 1)
-    // of digits
-    var filter = /^(\([-+]?[0-9]+)\)$/;
+
+    //this filter asked for (###)-###-#### or (###) ### #### (or diferent variation of the space or -)
+    var filter = /^[(]{1}(\d{3})[)]{1}[ ,-]{0,1}(\d{3})[ ,-]{1}(\d{4})$/;
+    if (filter.test(a)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+function validateCardNumber(card) {
+    var a = document.getElementById(card).value;
+
+    //this filter asked for 
+    var filter = /^\d{4}[ ,-]\d{4}[ ,-]\d{4}[ ,-]\d{4}$/;
+    if (filter.test(a)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+function validateCardExpiry(expiry) {
+    var a = document.getElementById(expiry).value;
+
+    //this filter asked for 
+    var filter = /^(\d{2})(\/)(\d{2})$/;
+    var numbers = filter.exec(a);
+
+  
+
+    if (filter.test(a)) {
+        if (parseInt(numbers[3]) > 12){ //if month is greater then 12
+            return false; 
+        } else {
+            return true;
+        }
+    }
+    else {
+        return false;
+    }
+}
+
+function validateCardCCV(ccv) {
+    var a = document.getElementById(ccv).value;
+
+    //this filter asked for 
+    var filter = /^\d{3,4}$/;
     if (filter.test(a)) {
         return true;
     }
@@ -44,17 +91,62 @@ $(document).ready(function(){
     // and also some feedback as an Alert + putting a value in the input that shows the format required
     // the "addClass" will use the class "error" defined in style.css and add it to the phone input
     // The "error" class in style.css defines yellow background and red foreground
-    $("#phone").on("change", function(){
-        if (!validatePhone("phone")){
-            alert("Wrong format for phone");
-            $("#phone").val("(xxxx)");
-            $("#phone").addClass("error");
+    $("#inputTelephone4").on("change", function(){
+        if (!validatePhone("inputTelephone4")){
+            alert("Invalid phone number");
+            $("#inputTelephone4").val("");
+            $("#inputTelephone4").addClass("error");
         }
         else {
-            $("#phone").removeClass("error");
+            $("#inputTelephone4").removeClass("error");
         }
     });
 
+    // Card Number Validation, it calls validateCardNumber
+    // and also some feedback as an Alert + putting a value in the input that shows the format required
+    // the "addClass" will use the class "error" defined in style.css and add it to the phone input
+    // The "error" class in style.css defines yellow background and red foreground
+    $("#inputCardNumber").on("change", function(){
+        if (!validateCardNumber("inputCardNumber")){
+            alert("Invalid card number");
+            $("#inputCardNumber").val("");
+            $("#inputCardNumber").addClass("error");
+        }
+        else {
+            $("#inputCardNumber").removeClass("error");
+        }
+    });
+
+    // Card Expiry Validation, it calls validateCardExpiry
+    // and also some feedback as an Alert + putting a value in the input that shows the format required
+    // the "addClass" will use the class "error" defined in style.css and add it to the phone input
+    // The "error" class in style.css defines yellow background and red foreground
+    $("#inputExpiry").on("change", function(){
+        if (!validateCardExpiry("inputExpiry")){
+            alert("Invalid card expiry date");
+            $("#inputExpiry").val("");
+            $("#inputExpiry").addClass("error");
+        }
+        else {
+            $("#inputExpiry").removeClass("error");
+        }
+    });
+
+    // Card Expiry Validation, it calls validateCardCCV
+    // and also some feedback as an Alert + putting a value in the input that shows the format required
+    // the "addClass" will use the class "error" defined in style.css and add it to the phone input
+    // The "error" class in style.css defines yellow background and red foreground
+    $("#inputCCV").on("change", function(){
+        if (!validateCardCCV("inputCCV")){
+            alert("Invalid card CCV");
+            $("#inputCCV").val("");
+            $("#inputCCV").addClass("error");
+        }
+        else {
+            $("#inputCCV").removeClass("error");
+        }
+    });
+    
     // To change the style of the calender, look in jqueryui.com, under Themes, in the ThemeRoller Gallery 
     // You can try different themes (the names are under the calendars) / This is Excite Bike 
     // To use a different theme you must include its css in your HTML file. 

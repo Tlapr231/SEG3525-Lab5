@@ -1,4 +1,6 @@
 <!-- Une portion de ce code a ete pris de l<espace github de carolinebarriere : https://github.com/carolinebarriere/carolinebarriere.github.io/tree/master/SEG3125-Module4-Service -->
+<!-- Une autre portion de ce code a ete pris de l<espace github de carolinebarriere : https://github.com/carolinebarriere/carolinebarriere.github.io/tree/master/SEG3125-Module5-ValidatedService -->
+
 <!-- This file contains many elements adapted from the online tutoral -->
 <!-- on Bootstrap 4 as found here: https://www.w3schools.com/bootstrap4/default.asp -->
 
@@ -25,10 +27,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
+    <!-- Style sheet (CSS) and JavaScript scripts necessary to use JQuery as well as JQueryUI library -->
+    <!-- which is built on top of JQuery and offers additional possibilities -->
+    <!-- For example, JQuery UI has a datepicker which is popular and that we can use -->
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/vader/jquery-ui.css" rel="stylesheet" type="text/css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
     <!-- Your own additional style sheet and JavaScript -->
     <link href="CSS/style.css" rel="stylesheet" type="text/css">
     <script src="JS/script.js"></script>
     <script src="JS/service.js"></script>
+
 </head>
 
 
@@ -252,7 +262,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text bg-dark text-white" id="basic-addon3">Date :</span>
                 </div>
-                <input type="date" class="form-control uneditable-input bg-light text-white" id="dateInput"
+                <input type="text" class="form-control uneditable-input bg-light text-white" id="dateInput"
                     onchange="getDayOfWeek()" aria-describedby="basic-addon3">
             </div>
 
@@ -339,17 +349,17 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><input name="service" type="radio" id="truing"></td>
+                                    <td><input class="ui-checkboxradio" name="service" type="radio" id="truing"></td>
                                     <td>Wheel Truing</td>
                                     <td>$19.95</td>
                                 </tr>
                                 <tr>
-                                    <td><input name="service" type="radio" id="truing"></td>
+                                    <td><input name="service" type="radio" id="relpacement"></td>
                                     <td>Wheel Replacement</td>
                                     <td>$99.95 - $224.95</td>
                                 </tr>
                                 <tr>
-                                    <td><input name="service" type="radio" id="truing"></td>
+                                    <td><input name="service" type="radio" id="brake"></td>
                                     <td>Brake Repair</td>
                                     <td>$29.95</td>
                                 </tr>
@@ -369,6 +379,47 @@
                                     <td><input name="service" type="radio" id="clean"></td>
                                     <td>Drivetrain Clean</td>
                                     <td>$44.95</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="card border-dark">
+                <div class="card-header bg-dark">
+                    <a class="collapsed card-link text-white" data-toggle="collapse" href="#collapseSpecialist">Choose a
+                        Specialist</a>
+                </div>
+                <div id="collapseSpecialist" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                        <table class="table table-borderless table-dark table-hover">
+                            <thead>
+                                <tr class="bg-danger">
+                                    <th></th>
+                                    <th>Service</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input name="service" type="radio" id="Erwind"></td>
+                                    <td>Erwind</td>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <td><input name="service" type="radio" id="Conor"></td>
+                                    <td>Conor</td>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <td><input name="service" type="radio" id="Elie"></td>
+                                    <td>Elie</td>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <td><input name="service" type="radio" id="Kody"></td>
+                                    <td>Kody</td>
+                                    <th></th>
                                 </tr>
                             </tbody>
                         </table>
@@ -406,7 +457,8 @@
             <div class="card border-dark">
                 <div class="card-header bg-dark">
                     <a class="collapsed card-link text-white" data-toggle="collapse" href="#collapseClientInfo">Your
-                        info</a>
+                        personal
+                        information</a>
                 </div>
                 <div id="collapseClientInfo" class="collapse" data-parent="#accordion">
                     <div class="card-body">
@@ -453,8 +505,7 @@
                                             <span class="input-group-text bg-dark text-white"
                                                 id="basic-addon3">Telephone :</span>
                                         </div>
-                                        <input type="text" class="form-control uneditable-input bg-light text-white"
-                                            id="inputTelephone4" placeholder="Telephone">
+                                        <input type="text" class="form-control uneditable-input bg-light text-white" id="inputTelephone4" placeholder="(###) ###-####" >
                                     </div>
                                 </div>
                             </div>
@@ -517,7 +568,66 @@
                                 </div>
                             </div>
 
-                            <button type="submit" class="btn btn-primary bg-dark text-white">Submit</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card border-dark">
+                <div class="card-header bg-dark">
+                    <a class="collapsed card-link text-white" data-toggle="collapse" href="#collapsePaymentInfo">Your
+                        Payment
+                        information</a>
+                </div>
+                <div id="collapsePaymentInfo" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+
+                        <div class="form-row">
+                            <div class="form-group col-md-8">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-dark text-white" id="basic-addon3">Card Number
+                                            :</span>
+                                    </div>
+                                    <input type="text" class="form-control uneditable-input bg-light text-white"
+                                        id="inputCardNumber" placeholder="#### #### #### ####">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-dark text-white" id="basic-addon3">Expiry Date
+                                            :</span>
+                                    </div>
+                                    <input type="text" class="form-control uneditable-input bg-light text-white"
+                                        id="inputExpiry" placeholder="##/##">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-8">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-dark text-white" id="basic-addon3" title="We ask for your credit card number in case of no-show, 20$ will be charged.">Card Holder Name
+                                            :</span>
+                                    </div>
+                                    <input type="text" class="form-control uneditable-input bg-light text-white"
+                                        id="inputCardName" placeholder="Card Holder Name">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-dark text-white" id="basic-addon3">CCV Number
+                                            :</span>
+                                    </div>
+                                    <input type="text" class="form-control uneditable-input bg-light text-white"
+                                        id="inputCCV" placeholder="###">
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary bg-dark text-white">Submit</button>
                         </form>
                     </div>
                 </div>
