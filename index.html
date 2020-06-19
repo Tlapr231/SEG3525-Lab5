@@ -38,7 +38,7 @@
     <!-- Your own additional style sheet and JavaScript -->
     <link href="CSS/style.css" rel="stylesheet" type="text/css">
     <script src="JS/script.js"></script>
-    <script src="JS/service.js"></script>
+    <script src="JS/JQuery.js"></script>
 
 </head>
 
@@ -332,148 +332,154 @@
         <!-- Image : https://www.iconfinder.com/icons/6351901/appointment_calendar_checklist_date_event_schedule_time_icon -->
         <h2 class="p-1"><img src="images/BookIconDark.png" alt="Icon"> Book an Appointment</h2>
 
+        <form id="formBook" onsubmit="return confirm('Do you really want to submit the Appointment?');">
 
-        <div id="accordion">
+            <div id="accordion">
 
-            <!-- SERVICE SELECTION -->
-            <div class="card border-dark">
-                <div class="card-header bg-dark">
-                    <a class="card-link text-white" data-toggle="collapse" href="#collapseService">Choose a service</a>
-                </div>
-                <div id="collapseService" class="collapse show" data-parent="#accordion">
-                    <div class="card-body">
-                        <table class="table table-borderless table-dark table-hover">
-                            <thead>
-                                <tr class="bg-danger">
-                                    <th></th>
-                                    <th>Service</th>
-                                    <th>Price (CAD)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="text-center"><input name="service" type="radio" id="truing"></td>
-                                    <td><label for="truing">Wheel Truing</label></td>
-                                    <td><label for="truing">$19.95</label></td>
-                                </tr>
-                                <tr>
-                                    <td class="text-center"><input name="service" type="radio" id="relpacement"></td>
-                                    <td><label for="relpacement">Wheel Replacement</label></td>
-                                    <td><label for="relpacement">$99.95 - $224.95</label></td>
-                                </tr>
-                                <tr>
-                                    <td class="text-center"><input name="service" type="radio" id="brake"></td>
-                                    <td><label for="brake">Brake Repair</label></td>
-                                    <td><label for="brake">$29.95</label></td>
-                                </tr>
-                                <tr>
-                                    <td class="text-center"><input name="service" type="radio" id="regular"></td>
-                                    <td><label for="regular">Regular Tune-Up</label></td>
-                                    <td><label for="regular">$45.95</label></td>
-                                </tr>
-                                <tr>
-                                    <td class="text-center"><input name="service" type="radio" id="major"></td>
-                                    <td><label for="major">Major overhaul</label></td>
-                                    <td><label for="major">$145.95</label></td>
-                                </tr>
-                                <tr>
-                                    <td class="text-center"><input name="service" type="radio" id="clean"></td>
-                                    <td><label for="clean">Drivetrain Clean</label></td>
-                                    <td><label for="clean">$44.95</label></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                <!-- SERVICE SELECTION -->
+                <div class="card border-dark">
+                    <div class="card-header bg-dark">
+                        <a class="card-link text-white" data-toggle="collapse" href="#collapseService">Choose a
+                            service</a>
                     </div>
-                </div>
-            </div>
-
-            <!-- SPECIALIST SELECTION -->
-            <div class="card border-dark">
-                <div class="card-header bg-dark">
-                    <a id="accordianSpec" class="collapsed card-link text-white" data-toggle="collapse"
-                        href="#collapseSpecialist"
-                        title="If no specialist is selected, we will automatically assign one to you">Choose a
-                        Specialist</a>
-                </div>
-                <div id="collapseSpecialist" class="collapse" data-parent="#accordion">
-                    <div class="card-body">
-                        <table class="table table-borderless table-dark table-hover">
-                            <thead>
-                                <tr class="bg-danger">
-                                    <th style="width:95px"></th>
-                                    <th>Specialist</th>
-                                    <th>Work Days</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="text-center"><input name="specialist" type="radio" id="Erwind"></td>
-                                    <td><label for="Erwind">Erwind</label></td>
-                                    <th><label for="Erwind">Monday, Wednesday, Friday</label></th>
-                                </tr>
-                                <tr>
-                                    <td class="text-center"><input name="specialist" type="radio" id="Conor"></td>
-                                    <td><label for="Conor">Conor</label></td>
-                                    <th><label for="Conor">Monday, Tuesday, Thursday</label></th>
-                                </tr>
-                                <tr>
-                                    <td class="text-center"><input name="specialist" type="radio" id="Elie"></td>
-                                    <td><label for="Elie">Elie</label></td>
-                                    <th><label for="Elie">Monday, Tuesday, Wednesday, Thursday, Friday</label></th>
-                                </tr>
-                                <tr>
-                                    <td class="text-center"><input name="specialist" type="radio" id="Kody"></td>
-                                    <td><label for="Kody">Kody</label></td>
-                                    <th><label for="Kody">Tuesday, Wednesday, Thursday, Friday</label></th>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <!-- DATE CHOSING -->
-            <div class="card border-dark">
-                <div class="card-header bg-dark">
-                    <a class="collapsed card-link text-white" data-toggle="collapse" href="#collapseDate">Choose a
-                        date</a>
-                </div>
-                <div id="collapseDate" class="collapse" data-parent="#accordion">
-                    <div class="card-body">
-                        <!-- Bootstrap has various input components. Some examples are given here: -->
-                        <!-- Component shown here: https://v4-alpha.getbootstrap.com/components/forms/#textual-inputs -->
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text bg-dark text-white" id="basic-addon3">Date and Time
-                                    :</span>
-                            </div>
-                            <input type="text" class="form-control uneditable-input bg-light text-white"
-                                id="dateTimeInput" value="06/18/2020">
+                    <div id="collapseService" class="collapse show" data-parent="#accordion">
+                        <div class="card-body">
+                            <table class="table table-borderless table-dark table-hover">
+                                <thead>
+                                    <tr class="bg-danger">
+                                        <th></th>
+                                        <th>Service</th>
+                                        <th>Price (CAD)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-center"><input name="service" type="radio" id="truing" required>
+                                        </td>
+                                        <td><label for="truing">Wheel Truing</label></td>
+                                        <td><label for="truing">$19.95</label></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center"><input name="service" type="radio" id="relpacement">
+                                        </td>
+                                        <td><label for="relpacement">Wheel Replacement</label></td>
+                                        <td><label for="relpacement">$99.95 - $224.95</label></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center"><input name="service" type="radio" id="brake"></td>
+                                        <td><label for="brake">Brake Repair</label></td>
+                                        <td><label for="brake">$29.95</label></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center"><input name="service" type="radio" id="regular"></td>
+                                        <td><label for="regular">Regular Tune-Up</label></td>
+                                        <td><label for="regular">$45.95</label></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center"><input name="service" type="radio" id="major"></td>
+                                        <td><label for="major">Major overhaul</label></td>
+                                        <td><label for="major">$145.95</label></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center"><input name="service" type="radio" id="clean"></td>
+                                        <td><label for="clean">Drivetrain Clean</label></td>
+                                        <td><label for="clean">$44.95</label></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-
-
-                        <!-- <div class="form-group row">
-                                <label for="dateTimeInput" class="col-2 col-form-label">Date and time</label>
-                                <div class="col-10">
-                                    <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="dateTimeInput">
-                                </div>
-                            </div> -->
                     </div>
                 </div>
-            </div>
 
-            <!-- PERSONAL INFO -->
-            <div class="card border-dark">
-                <div class="card-header bg-dark">
-                    <a class="collapsed card-link text-white" data-toggle="collapse" href="#collapseClientInfo">Your
-                        personal
-                        information</a>
+                <!-- SPECIALIST SELECTION -->
+                <div class="card border-dark">
+                    <div class="card-header bg-dark">
+                        <a id="accordianSpec" class="collapsed card-link text-white" data-toggle="collapse"
+                            href="#collapseSpecialist"
+                            title="If no specialist is selected, we will automatically assign one to you">Choose a
+                            Specialist</a>
+                    </div>
+                    <div id="collapseSpecialist" class="collapse" data-parent="#accordion">
+                        <div class="card-body">
+                            <table class="table table-borderless table-dark table-hover">
+                                <thead>
+                                    <tr class="bg-danger">
+                                        <th style="width:95px"></th>
+                                        <th>Specialist</th>
+                                        <th>Work Days</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-center"><input name="specialist" type="radio" id="Erwind"></td>
+                                        <td><label for="Erwind">Erwind</label></td>
+                                        <th><label for="Erwind">Monday, Wednesday, Friday</label></th>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center"><input name="specialist" type="radio" id="Conor"></td>
+                                        <td><label for="Conor">Conor</label></td>
+                                        <th><label for="Conor">Monday, Tuesday, Thursday</label></th>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center"><input name="specialist" type="radio" id="Elie"></td>
+                                        <td><label for="Elie">Elie</label></td>
+                                        <th><label for="Elie">Monday, Tuesday, Wednesday, Thursday, Friday</label></th>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center"><input name="specialist" type="radio" id="Kody"></td>
+                                        <td><label for="Kody">Kody</label></td>
+                                        <th><label for="Kody">Tuesday, Wednesday, Thursday, Friday</label></th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
-                <div id="collapseClientInfo" class="collapse" data-parent="#accordion">
-                    <div class="card-body">
-                        <p>Enter your information so we can contact you.</p>
-                        <!-- Jai pris la form d<exemple de bootstrap pour une base : https://getbootstrap.com/docs/4.0/components/forms/ -->
-                        <form id="formBook">
+
+                <!-- DATE CHOSING -->
+                <div class="card border-dark">
+                    <div class="card-header bg-dark">
+                        <a class="collapsed card-link text-white" data-toggle="collapse" href="#collapseDate">Choose a
+                            date</a>
+                    </div>
+                    <div id="collapseDate" class="collapse" data-parent="#accordion">
+                        <div class="card-body">
+                            <!-- Bootstrap has various input components. Some examples are given here: -->
+                            <!-- Component shown here: https://v4-alpha.getbootstrap.com/components/forms/#textual-inputs -->
+                            <div class="form-row">
+                                <div class="input-group col-md-6 mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-dark text-white" id="basic-addon3">Date
+                                            :</span>
+                                    </div>
+                                    <input type="text" class="form-control uneditable-input bg-light text-white"
+                                        id="dateTimeInput" value="06/18/2020" required>
+                                </div>
+
+                                <div class="input-group col-md-6 mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-dark text-white" id="basic-addon3">Time
+                                            :</span>
+                                    </div>
+                                    <input type="time" class="form-control uneditable-input bg-light text-white" id=""
+                                        min="08:00" max="16:00" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PERSONAL INFO -->
+                <div class="card border-dark">
+                    <div class="card-header bg-dark">
+                        <a class="collapsed card-link text-white" data-toggle="collapse" href="#collapseClientInfo">Your
+                            personal
+                            information</a>
+                    </div>
+                    <div id="collapseClientInfo" class="collapse" data-parent="#accordion">
+                        <div class="card-body">
+                            <p>Enter your information so we can contact you.</p>
+                            <!-- Jai pris la form d<exemple de bootstrap pour une base : https://getbootstrap.com/docs/4.0/components/forms/ -->
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <div class="input-group mb-3">
@@ -482,7 +488,7 @@
                                                 Name :</span>
                                         </div>
                                         <input type="text" class="form-control uneditable-input bg-light text-white"
-                                            id="inputFNamel4" placeholder="First Name">
+                                            id="inputFNamel4" placeholder="First Name" required>
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
@@ -492,7 +498,7 @@
                                                 Name :</span>
                                         </div>
                                         <input type="text" class="form-control uneditable-input bg-light text-white"
-                                            id="inputLName4" placeholder="Last Name">
+                                            id="inputLName4" placeholder="Last Name" required>
                                     </div>
                                 </div>
                             </div>
@@ -505,7 +511,7 @@
                                                 :</span>
                                         </div>
                                         <input type="email" class="form-control uneditable-input bg-light text-white"
-                                            id="inputEmail4" placeholder="Email">
+                                            id="inputEmail4" placeholder="Email" required>
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
@@ -515,7 +521,7 @@
                                                 id="basic-addon3">Telephone :</span>
                                         </div>
                                         <input type="text" class="form-control uneditable-input bg-light text-white"
-                                            id="inputTelephone4" placeholder="(###) ###-####">
+                                            id="inputTelephone4" placeholder="(###) ###-####" required>
                                     </div>
                                 </div>
                             </div>
@@ -528,7 +534,7 @@
                                                 :</span>
                                         </div>
                                         <input type="text" class="form-control uneditable-input bg-light text-white"
-                                            id="inputAddress" placeholder="1234 Main St">
+                                            id="inputAddress" placeholder="1234 Main St" required>
                                     </div>
                                 </div>
                             </div>
@@ -541,7 +547,7 @@
                                                 :</span>
                                         </div>
                                         <input type="text" class="form-control uneditable-input bg-light text-white"
-                                            id="inputCity" placeholder="City">
+                                            id="inputCity" placeholder="City" required>
                                     </div>
                                 </div>
                                 <div class="form-group col-md-4">
@@ -551,7 +557,7 @@
                                                 :</span>
                                         </div>
                                         <select type="text" class="form-control uneditable-input bg-light text-white"
-                                            id="inputProvince">
+                                            id="inputProvince" required>
                                             <option selected disabled>Choose...</option>
                                             <option>Ontario</option>
                                             <option>Québec</option>
@@ -579,78 +585,80 @@
                                 </div>
                             </div>
 
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card border-dark">
+                    <div class="card-header bg-dark">
+                        <a id="accordianPayment" class="collapsed card-link text-white" data-toggle="collapse"
+                            href="#collapsePaymentInfo"
+                            title="We ask for your credit card number in case of no-show, $20 will be charged.">Your
+                            Payment
+                            information</a>
+                    </div>
+                    <div id="collapsePaymentInfo" class="collapse" data-parent="#accordion">
+                        <div class="card-body">
+
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text bg-dark text-white" id="basic-addon3">Card
+                                                Number
+                                                :</span>
+                                        </div>
+                                        <input type="text" class="form-control uneditable-input bg-light text-white"
+                                            id="inputCardNumber" placeholder="#### #### #### ####" required>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text bg-dark text-white" id="basic-addon3">Expiry
+                                                Date
+                                                :</span>
+                                        </div>
+                                        <input type="text" class="form-control uneditable-input bg-light text-white"
+                                            id="inputExpiry" placeholder="##/##" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text bg-dark text-white" id="basic-addon3">Card
+                                                Holder Name
+                                                :</span>
+                                        </div>
+                                        <input type="text" class="form-control uneditable-input bg-light text-white"
+                                            id="inputCardName" placeholder="Card Holder Name" required>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <div class="input-group mb-3" id="ccvtooltip"
+                                        title="The CCV Number is a 3-4 digit number usually at the back of the card.">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text bg-dark text-white" id="basic-addon3"
+                                                required>CCV
+                                                Number
+                                                :</span>
+                                        </div>
+                                        <input type="text" class="form-control uneditable-input bg-light text-white"
+                                            id="inputCCV" placeholder="###" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- on submit code : https://javascript.info/forms-submit -->
+                            <button type="submit" id="submitbtn"
+                                class="btn btn-primary bg-dark text-white">Submit</button>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div class="card border-dark">
-                <div class="card-header bg-dark">
-                    <a id="accordianPayment" class="collapsed card-link text-white" data-toggle="collapse"
-                        href="#collapsePaymentInfo"
-                        title="We ask for your credit card number in case of no-show, $20 will be charged.">Your
-                        Payment
-                        information</a>
-                </div>
-                <div id="collapsePaymentInfo" class="collapse" data-parent="#accordion">
-                    <div class="card-body">
-
-                        <div class="form-row">
-                            <div class="form-group col-md-8">
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text bg-dark text-white" id="basic-addon3">Card
-                                            Number
-                                            :</span>
-                                    </div>
-                                    <input type="text" class="form-control uneditable-input bg-light text-white"
-                                        id="inputCardNumber" placeholder="#### #### #### ####">
-                                </div>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text bg-dark text-white" id="basic-addon3">Expiry
-                                            Date
-                                            :</span>
-                                    </div>
-                                    <input type="text" class="form-control uneditable-input bg-light text-white"
-                                        id="inputExpiry" placeholder="##/##">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group col-md-8">
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text bg-dark text-white" id="basic-addon3">Card
-                                            Holder Name
-                                            :</span>
-                                    </div>
-                                    <input type="text" class="form-control uneditable-input bg-light text-white"
-                                        id="inputCardName" placeholder="Card Holder Name">
-                                </div>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <div class="input-group mb-3" id="ccvtooltip"
-                                    title="The CCV Number is a 3-4 digit number usually at the back of the card.">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text bg-dark text-white" id="basic-addon3" required>CCV
-                                            Number
-                                            :</span>
-                                    </div>
-                                    <input type="text" class="form-control uneditable-input bg-light text-white"
-                                        id="inputCCV" placeholder="###">
-                                </div>
-                            </div>
-                        </div>
-
-                        <button type="submit" id="submitbtn" class="btn btn-primary bg-dark text-white">Submit</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </form>
     </div>
 
 

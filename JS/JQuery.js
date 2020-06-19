@@ -41,7 +41,7 @@ function validateCardExpiry(expiry) {
     var numbers = filter.exec(a);
 
     if (filter.test(a)) {
-        if (parseInt(numbers[3]) > 12) { //if month is greater then 12
+        if (parseInt(numbers[1]) > 12) { //if month is greater then 12
             return false;
         } else {
             return true;
@@ -293,14 +293,4 @@ $(document).ready(function () {
             "ui-tooltip": "highlight"
         }
     });
-
-    $("#submitbtn").on("click", function () {
-        if (!isSubmitable()) {
-            alert("There is missing information");
-        } else {
-            alert("Your appointment has been successfully registered");
-        }
-    });
-
-
 });
