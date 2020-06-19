@@ -23,7 +23,7 @@ function validatePhone(txtPhone) {
 function validateCardNumber(card) {
     var a = document.getElementById(card).value;
 
-    //this filter asked for 
+    //this filter asked for #### #### #### #### or ####-####-####-#### (or diferent variation of the space or -)
     var filter = /^\d{4}[ ,-]\d{4}[ ,-]\d{4}[ ,-]\d{4}$/;
     if (filter.test(a)) {
         return true;
@@ -36,15 +36,13 @@ function validateCardNumber(card) {
 function validateCardExpiry(expiry) {
     var a = document.getElementById(expiry).value;
 
-    //this filter asked for 
+    //this filter asked for ##/##
     var filter = /^(\d{2})(\/)(\d{2})$/;
     var numbers = filter.exec(a);
 
-  
-
     if (filter.test(a)) {
-        if (parseInt(numbers[3]) > 12){ //if month is greater then 12
-            return false; 
+        if (parseInt(numbers[3]) > 12) { //if month is greater then 12
+            return false;
         } else {
             return true;
         }
@@ -57,8 +55,27 @@ function validateCardExpiry(expiry) {
 function validateCardCCV(ccv) {
     var a = document.getElementById(ccv).value;
 
-    //this filter asked for 
+    //this filter asked for ### or ####
     var filter = /^\d{3,4}$/;
+    if (filter.test(a)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+function validateZip(zip) {
+    var a = document.getElementById(zip).value;
+
+    if (a.length <=5 ){
+        //this filter asked for ##### (THIS IS THE AMERICAN FILTER)
+        var filter = /^(\d{5})$/;
+    } else {
+        //this filter asked for W#W#W# or W#W #W# (THIS IS THE CANADIAN FILTER)
+        var filter = /^(\w{1})(\d{1})(\w{1})( {0,1})(\d{1})(\w{1})(\d{1})$/;
+
+    }
     if (filter.test(a)) {
         return true;
     }
@@ -82,7 +99,7 @@ function disableDates(date) {
     if (date.getDay() == 6)
         return [false];
     var string = jQuery.datepicker.formatDate(setDateFormat, date);
-    return [ unavailableDates.indexOf(string) == -1 ]
+    return [unavailableDates.indexOf(string) == -1]
 }
 
 function disableDatesBySpecialist(date) {
@@ -94,139 +111,197 @@ function disableDatesBySpecialist(date) {
     // Sunday is Day 0, disable all Sundays
     if (date.getDay() == 0 || date.getDay() == 6)
         return [false];
-    
+
     if (erwind) {
         if (date.getDay() == 2 || date.getDay() == 4)
             return [false];
     }
     if (conor) {
-        if(date.getDay() == 3 || date.getDay() == 5)
+        if (date.getDay() == 3 || date.getDay() == 5)
             return [false];
     }
     if (kody) {
-        if(date.getDay() == 1)
+        if (date.getDay() == 1)
             return [false];
     }
 
     var string = jQuery.datepicker.formatDate(setDateFormat, date);
-    return [ unavailableDates.indexOf(string) == -1 ]
+    return [unavailableDates.indexOf(string) == -1]
 }
 
+function isSubmitable() {
+    //If no services are checked
+    if (!document.getElementById("truing").checked && !document.getElementById("relpacement").checked && !document.getElementById("brake").checked && !document.getElementById("regular").checked && !document.getElementById("major").checked && !document.getElementById("clean").checked) {
+        console.log("No services are Selected");
+        return false;
+    }
+    //if a field in personal information is empty
+    if (document.getElementById("inputFNamel4") === "" || document.getElementById("inputLName4") === "" || document.getElementById("inputTelephone4") === "" || document.getElementById("inputEmail4") === "" || document.getElementById("inputAddress") === "" || document.getElementById("inputCity") === "" || document.getElementById("inputZip") === "" || document.getElementById("inputProvince") === "Choose...") {
+        console.log("Not all fields are filled out in the Personal Information tab");
+        return false;
+    }
+    //if a field in Payment information is empty
+    if (document.getElementById("inputCardNumber") === "" || document.getElementById("inputExpiry") === "" || document.getElementById("inputCardName") === "" || document.getElementById("inputCCV") === "") {
+        console.log("Not all fields are filled out in the Personal Information tab");
+        return false;
+    }
+    console.log("The form is valid");
+    return true;
+}
 
 // HERE, JQuery "LISTENING" starts
-$(document).ready(function(){
+$(document).ready(function () {
 
     // phone validation, it calls validatePhone
-    // and also some feedback as an Alert + putting a value in the input that shows the format required
-    // the "addClass" will use the class "error" defined in style.css and add it to the phone input
-    // The "error" class in style.css defines yellow background and red foreground
-    $("#inputTelephone4").on("change", function(){
-        if (!validatePhone("inputTelephone4")){
+    $("#inputTelephone4").on("change", function () {
+        if (!validatePhone("inputTelephone4")) {
             alert("Invalid phone number");
             $("#inputTelephone4").val("");
-            $("#inputTelephone4").addClass("error");
+            $("#inputTelephone4").removeClass("bg-light");
+            $("#inputTelephone4").addClass("bg-danger");
         }
         else {
-            $("#inputTelephone4").removeClass("error");
+            $("#inputTelephone4").removeClass("bg-danger");
+            $("#inputTelephone4").addClass("bg-light");
+        }
+    });
+
+    // zip validation, it calls validateZip
+    $("#inputZip").on("change", function () {
+        if (!validateZip("inputZip")) {
+            alert("Invalid zip code");
+            $("#inputZip").val("");
+            $("#inputZip").removeClass("bg-light");
+            $("#inputZip").addClass("bg-danger");
+        }
+        else {
+            $("#inputZip").removeClass("bg-danger");
+            $("#inputZip").addClass("bg-light");
         }
     });
 
     // Card Number Validation, it calls validateCardNumber
-    // and also some feedback as an Alert + putting a value in the input that shows the format required
-    // the "addClass" will use the class "error" defined in style.css and add it to the phone input
-    // The "error" class in style.css defines yellow background and red foreground
-    $("#inputCardNumber").on("change", function(){
-        if (!validateCardNumber("inputCardNumber")){
+    $("#inputCardNumber").on("change", function () {
+        if (!validateCardNumber("inputCardNumber")) {
             alert("Invalid card number");
             $("#inputCardNumber").val("");
-            $("#inputCardNumber").addClass("error");
+            $("#inputCardNumber").removeClass("bg-light");
+            $("#inputCardNumber").addClass("bg-danger");
+
         }
         else {
-            $("#inputCardNumber").removeClass("error");
+            $("#inputCardNumber").removeClass("bg-danger");
+            $("#inputCardNumber").addClass("bg-light");
         }
     });
 
     // Card Expiry Validation, it calls validateCardExpiry
-    // and also some feedback as an Alert + putting a value in the input that shows the format required
-    // the "addClass" will use the class "error" defined in style.css and add it to the phone input
-    // The "error" class in style.css defines yellow background and red foreground
-    $("#inputExpiry").on("change", function(){
-        if (!validateCardExpiry("inputExpiry")){
+    $("#inputExpiry").on("change", function () {
+        if (!validateCardExpiry("inputExpiry")) {
             alert("Invalid card expiry date");
             $("#inputExpiry").val("");
-            $("#inputExpiry").addClass("error");
+            $("#inputExpiry").removeClass("bg-light");
+            $("#inputExpiry").addClass("bg-danger");
+
         }
         else {
-            $("#inputExpiry").removeClass("error");
+            $("#inputExpiry").removeClass("bg-danger");
+            $("#inputExpiry").addClass("bg-light");
         }
     });
 
     // Card Expiry Validation, it calls validateCardCCV
-    // and also some feedback as an Alert + putting a value in the input that shows the format required
-    // the "addClass" will use the class "error" defined in style.css and add it to the phone input
-    // The "error" class in style.css defines yellow background and red foreground
-    $("#inputCCV").on("change", function(){
-        if (!validateCardCCV("inputCCV")){
+    $("#inputCCV").on("change", function () {
+        if (!validateCardCCV("inputCCV")) {
             alert("Invalid card CCV");
             $("#inputCCV").val("");
-            $("#inputCCV").addClass("error");
+            $("#inputCCV").removeClass("bg-light");
+            $("#inputCCV").addClass("bg-danger");
         }
         else {
-            $("#inputCCV").removeClass("error");
+            $("#inputCCV").removeClass("bg-danger");
+            $("#inputCCV").addClass("bg-light");
         }
     });
-    
-    // To change the style of the calender, look in jqueryui.com, under Themes, in the ThemeRoller Gallery 
-    // You can try different themes (the names are under the calendars) / This is Excite Bike 
-    // To use a different theme you must include its css in your HTML file. 
-    // The one I included in my HTML is the Excite Bike, but you can try others
 
-    // Also, here is a good tutorial for playing with the datepicker in https://webkul.com/blog/jquery-datepicker/ 
-    // Datepicker is also documented as one of the widgets here: https://api.jqueryui.com/category/widgets/ 
-    $( "#dateInput" ).datepicker(
+    //Filter the Calendar in the check hours section early in the website
+    $("#dateInput").datepicker(
         {
             dateFormat: setDateFormat,
             // no calendar before June 1rst 2020
-            minDate: new Date('06/01/2020'),  
+            minDate: new Date('06/01/2020'),
             maxDate: '+4M',
             // used to disable some dates
             beforeShowDay: $.datepicker.noWeekends,
             beforeShowDay: disableDates
-        }   
+        }
     );
 
-    $( "#dateTimeInput" ).datepicker(
+    //Filter the calender inside the schedule appointment
+    $("#dateTimeInput").datepicker(
         {
             dateFormat: setDateFormat,
             // no calendar before June 1rst 2020
-            minDate: new Date('06/01/2020'),  
+            minDate: new Date('06/01/2020'),
             maxDate: '+4M',
             // used to disable some dates
             beforeShowDay: $.datepicker.noWeekends,
             beforeShowDay: disableDatesBySpecialist
-        }   
+        }
     );
 
-
-    // Look at the different events on which an action can be performed
-    // https://www.w3schools.com/jquery/jquery_events.asp
-    // Here, we put 
-    $("#debit").on("mouseenter", function(){
-        $("#debit").addClass("showInput");
+    // Accordian-Payment ToolTip activation
+    $("#accordianPayment").on("mouseenter", function () {
+        $("#accordianPayment").addClass("showInput");
     });
 
-    $("#debit").on("mouseleave", function(){
-        $("#debit").removeClass("showInput");
+    $("#accordianPayment").on("mouseleave", function () {
+        $("#accordianPayment").removeClass("showInput");
     });
-  
-    // https://jqueryui.com/tooltip/ 
-    // The class "highlight" used here is predefined in JQuery UI
-    // the message of the tooltip is encoded in the input (in the HTML file)
-    $("#debit").tooltip({
+
+    $("#accordianPayment").tooltip({
         classes: {
-          "ui-tooltip": "highlight"
+            "ui-tooltip": "highlight"
         }
-      });
+    });
+
+    // Accordian-Specialist ToolTip activation
+    $("#accordianSpec").on("mouseenter", function () {
+        $("#accordianSpec").addClass("showInput");
+    });
+
+    $("#accordianSpec").on("mouseleave", function () {
+        $("#accordianSpec").removeClass("showInput");
+    });
+
+    $("#accordianSpec").tooltip({
+        classes: {
+            "ui-tooltip": "highlight"
+        }
+    });
+
+    // Accordian-Payment-CCV Number ToolTip activation
+    $("#ccvtooltip").on("mouseenter", function () {
+        $("#ccvtooltip").addClass("showInput");
+    });
+
+    $("#ccvtooltip").on("mouseleave", function () {
+        $("#ccvtooltip").removeClass("showInput");
+    });
+
+    $("#ccvtooltip").tooltip({
+        classes: {
+            "ui-tooltip": "highlight"
+        }
+    });
+
+    $("#submitbtn").on("click", function () {
+        if (!isSubmitable()) {
+            alert("There is missing information");
+        } else {
+            alert("Your appointment has been successfully registered");
+        }
+    });
 
 
 });

@@ -352,8 +352,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td class="text-center"><input class="ui-checkboxradio" name="service" type="radio"
-                                            id="truing"></td>
+                                    <td class="text-center"><input name="service" type="radio" id="truing"></td>
                                     <td><label for="truing">Wheel Truing</label></td>
                                     <td><label for="truing">$19.95</label></td>
                                 </tr>
@@ -391,7 +390,9 @@
             <!-- SPECIALIST SELECTION -->
             <div class="card border-dark">
                 <div class="card-header bg-dark">
-                    <a class="collapsed card-link text-white" data-toggle="collapse" href="#collapseSpecialist">Choose a
+                    <a id="accordianSpec" class="collapsed card-link text-white" data-toggle="collapse"
+                        href="#collapseSpecialist"
+                        title="If no specialist is selected, we will automatically assign one to you">Choose a
                         Specialist</a>
                 </div>
                 <div id="collapseSpecialist" class="collapse" data-parent="#accordion">
@@ -406,22 +407,22 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td class="text-center"><input name="service" type="radio" id="Erwind"></td>
+                                    <td class="text-center"><input name="specialist" type="radio" id="Erwind"></td>
                                     <td><label for="Erwind">Erwind</label></td>
                                     <th><label for="Erwind">Monday, Wednesday, Friday</label></th>
                                 </tr>
                                 <tr>
-                                    <td class="text-center"><input name="service" type="radio" id="Conor"></td>
+                                    <td class="text-center"><input name="specialist" type="radio" id="Conor"></td>
                                     <td><label for="Conor">Conor</label></td>
                                     <th><label for="Conor">Monday, Tuesday, Thursday</label></th>
                                 </tr>
                                 <tr>
-                                    <td class="text-center"><input name="service" type="radio" id="Elie"></td>
+                                    <td class="text-center"><input name="specialist" type="radio" id="Elie"></td>
                                     <td><label for="Elie">Elie</label></td>
                                     <th><label for="Elie">Monday, Tuesday, Wednesday, Thursday, Friday</label></th>
                                 </tr>
                                 <tr>
-                                    <td class="text-center"><input name="service" type="radio" id="Kody"></td>
+                                    <td class="text-center"><input name="specialist" type="radio" id="Kody"></td>
                                     <td><label for="Kody">Kody</label></td>
                                     <th><label for="Kody">Tuesday, Wednesday, Thursday, Friday</label></th>
                                 </tr>
@@ -472,7 +473,7 @@
                     <div class="card-body">
                         <p>Enter your information so we can contact you.</p>
                         <!-- Jai pris la form d<exemple de bootstrap pour une base : https://getbootstrap.com/docs/4.0/components/forms/ -->
-                        <form>
+                        <form id="formBook">
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <div class="input-group mb-3">
@@ -584,7 +585,9 @@
 
             <div class="card border-dark">
                 <div class="card-header bg-dark">
-                    <a class="collapsed card-link text-white" data-toggle="collapse" href="#collapsePaymentInfo">Your
+                    <a id="accordianPayment" class="collapsed card-link text-white" data-toggle="collapse"
+                        href="#collapsePaymentInfo"
+                        title="We ask for your credit card number in case of no-show, 20$ will be charged.">Your
                         Payment
                         information</a>
                 </div>
@@ -620,8 +623,7 @@
                             <div class="form-group col-md-8">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text bg-dark text-white" id="basic-addon3"
-                                            title="We ask for your credit card number in case of no-show, 20$ will be charged.">Card
+                                        <span class="input-group-text bg-dark text-white" id="basic-addon3">Card
                                             Holder Name
                                             :</span>
                                     </div>
@@ -630,9 +632,10 @@
                                 </div>
                             </div>
                             <div class="form-group col-md-4">
-                                <div class="input-group mb-3">
+                                <div class="input-group mb-3" id="ccvtooltip"
+                                    title="The CCV Number is a 3-4 digit number usually at the back of the card.">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text bg-dark text-white" id="basic-addon3">CCV
+                                        <span class="input-group-text bg-dark text-white" id="basic-addon3" required>CCV
                                             Number
                                             :</span>
                                     </div>
@@ -642,7 +645,7 @@
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn-primary bg-dark text-white">Submit</button>
+                        <button type="submit" id="submitbtn" class="btn btn-primary bg-dark text-white">Submit</button>
                         </form>
                     </div>
                 </div>
@@ -660,16 +663,6 @@
         <p class="sign">Student in Software Engineering</p>
     </div>
     <br>
-
-    <!-- This section contains elements to be validated -->
-    <!-- Refer to the JavaScript file, where JQuery is used to listen to those inputs using the ids -->
-    <div class="container" id="third">
-        <h3>Third Item</h3>
-        <p>Date: <input type="text" id="dateInput"></p>
-        <p>Phone Number Example <input value="(1234)" type="text" id="phone"></p>
-        <p>Credit Card: <input type="text" id="debit"
-                title="We ask for your credit card number in case of no-show, 20$ will be charged."></p>
-    </div>
 </body>
 
 </html>
