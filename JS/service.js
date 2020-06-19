@@ -145,7 +145,6 @@ function isSubmitable() {
         console.log("Not all fields are filled out in the Personal Information tab");
         return false;
     }
-    console.log("The form is valid");
     return true;
 }
 
